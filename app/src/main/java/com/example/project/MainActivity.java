@@ -1,6 +1,9 @@
 package com.example.project;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,6 +21,8 @@ import com.google.gson.reflect.TypeToken;
 
 @SuppressWarnings("FieldCanBeLocal")
 public class MainActivity extends AppCompatActivity implements com.example.project.JsonTask.JsonTaskListener {
+
+    Button button;
 
     private final String JSON_URL = "https://mobprog.webug.se/json-api?login=brom";
     private final String JSON_FILE = "mountains.json";
@@ -47,7 +52,17 @@ public class MainActivity extends AppCompatActivity implements com.example.proje
 
         new com.example.project.JsonFile(this, this).execute(JSON_FILE);
 
+        button = findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+                startActivity(intent);
+            }
+        });
+
     }
+
 
     @Override
     public void onPostExecute(String json) {
@@ -61,6 +76,8 @@ public class MainActivity extends AppCompatActivity implements com.example.proje
 
         for (Item item : listOfItems){
             mountains.add(new RecyclerViewItem(item.getTitle()));
+            mountains.add(new RecyclerViewItem(item.getName()));
+
         }
 
 

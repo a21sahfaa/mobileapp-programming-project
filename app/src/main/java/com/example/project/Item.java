@@ -13,9 +13,9 @@ public class Item {
     @SerializedName("cost")
     private int Cost;
     @SerializedName("size")
-    private int Size;
+    private int meter;
     @SerializedName("location")
-    private String Location;
+    private String location;
     @SerializedName("category")
     private String Category;
 
@@ -25,6 +25,5 @@ public class Item {
 
     public String getTitle() {
         return Name;
-
     }
 }
