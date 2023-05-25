@@ -75,9 +75,7 @@ public class MainActivity extends AppCompatActivity implements com.example.proje
         List<Item> listOfItems = gson.fromJson(json, type);
 
         for (Item item : listOfItems){
-            mountains.add(new RecyclerViewItem(item.getTitle()));
-            mountains.add(new RecyclerViewItem(item.getName()));
-
+            mountains.add(new RecyclerViewItem(item.getTitle(), item.getName(), item.getLocation(), item.getCost(), item.getsize(), item.getCategory()));
         }
 
 

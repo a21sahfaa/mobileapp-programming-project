@@ -31,8 +31,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.title.setText(items.get(position).getTitle());
-        holder.title.setText(items.get(position).getname());
+
+        holder.title.setText(items.get(position).getTitle() +"\n"+items.get(position).getLocation()+"\n"+items.get(position).getcost()+"\n"+items.get(position).getsize()+"\n"+items.get(position).getcategory());
+
 
     }
 
@@ -51,6 +52,15 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
             super(itemView);
             itemView.setOnClickListener(this);
             title = itemView.findViewById(R.id.title);
+            title = itemView.findViewById(R.id.name);
+            title = itemView.findViewById(R.id.location);
+            title = itemView.findViewById(R.id.cost);
+            title = itemView.findViewById(R.id.size);
+            title = itemView.findViewById(R.id.category);
+
+
+
+
 
 
         }
